@@ -11,7 +11,7 @@ public class TestNGHelper {
 
     @BeforeSuite
     public void beforeSuite(){
-        driver=browserFactory.getDriver();
+
 
     }
 
@@ -27,6 +27,7 @@ public class TestNGHelper {
 
     @BeforeMethod
     public void beforeMethod(ITestResult iTestResult){
+        driver=browserFactory.getDriver();
         String testName = iTestResult.getMethod().getMethodName();
         System.out.println(testName);
 
@@ -34,7 +35,7 @@ public class TestNGHelper {
 
     @AfterSuite
     public void afterSuite(){
-        browserFactory.quitDriver();
+
     }
 
     @AfterTest
@@ -49,7 +50,7 @@ public class TestNGHelper {
 
     @AfterMethod
     public void afterMethod(){
-
+        browserFactory.quitDriver();
     }
 
 

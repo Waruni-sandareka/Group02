@@ -27,6 +27,12 @@ public class LIB_Common extends TestBase {
         click(PG_Login.tf_Password);
         type(PG_Login.tf_Password,pwd);
         click(PG_Login.btn_Login);
+    }
+
+    public void bc_VerifyDashboard(){
+
+    }
+    public void bc_VerifyErrorMessages(String message){
 
     }
 }

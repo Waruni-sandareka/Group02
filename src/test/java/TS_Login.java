@@ -8,5 +8,21 @@ public class TS_Login extends TestBase {
     public void tc_001(){
         LIB_Common.get().bc_Login("admin", "pointofsale");
     }
+    @Test
+    public void tc_002(){
+        LIB_Common.get().bc_Login("admin", "pointofsale");
+    }
+    @Test
+    public void tc_003(){
+        LIB_Common.get().bc_Login("admin", "pointofsale");
+    }
+    @Test
+    public void tc_004(){
+        LIB_Common.get().bc_Login("admin", "pointofsale");
+    }
+    @Test
+    public void tc_005(){
+        LIB_Common.get().bc_Login("admin", "pointofsale");
+    }
 
 }

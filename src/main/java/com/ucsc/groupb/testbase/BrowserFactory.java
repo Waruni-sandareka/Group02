@@ -40,6 +40,7 @@ public class BrowserFactory {
 
     public void quitDriver(){
         tlWebDriver.get().quit();
+        tlWebDriver.remove();
     }
 
 
