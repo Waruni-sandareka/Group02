@@ -1,8 +1,10 @@
 package com.ucsc.groupb.pages;
 
 public enum PG_Login {
-    tf_UserName(""),
-    tf_Password("");
+    tf_UserName("#username"),
+    tf_Password("#password"),
+
+    btn_Login("//button[text()='Login']");
     private final String locator;
 
 
