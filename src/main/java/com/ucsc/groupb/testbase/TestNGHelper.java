@@ -1,5 +1,6 @@
 package com.ucsc.groupb.testbase;
 
+import com.ucsc.groupb.functions.LIB_Common;
 import org.openqa.selenium.WebDriver;
 import org.testng.ITestResult;
 import org.testng.annotations.*;
@@ -30,7 +31,7 @@ public class TestNGHelper {
         driver=browserFactory.getDriver();
         String testName = iTestResult.getMethod().getMethodName();
         System.out.println(testName);
-
+        LIB_Common.get().bc_Login("admin", "pointofsale");
     }
 
     @AfterSuite
