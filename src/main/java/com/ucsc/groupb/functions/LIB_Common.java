@@ -23,20 +23,22 @@ public class LIB_Common extends TestBase {
         return instance;
     }
 
-    public void bc_Login(String uname,String pwd) {
+    public void bc_Login(String uname, String pwd) {
         navigateToURL(getURL());
         click(PG_Login.tf_UserName);
-        type(PG_Login.tf_UserName,uname);
+        type(PG_Login.tf_UserName, uname);
         click(PG_Login.tf_Password);
-        type(PG_Login.tf_Password,pwd);
+        type(PG_Login.tf_Password, pwd);
         click(PG_Login.btn_Login);
     }
 
-    public void bc_VerifyDashboard(){
-
+    public boolean bc_VerifyDashboard() {
+        return isElementDisplayed(PG_Login.dashboardElement);
     }
-    public void bc_VerifyErrorMessages(String message){
 
+    public boolean bc_VerifyErrorMessages(String expectedMessage) {
+        String actualMessage = getText(PG_Login.errorMessage);
+        return actualMessage.equals(expectedMessage);
     }
 
     public void navigateToNewCustomer() {
