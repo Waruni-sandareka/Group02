@@ -61,6 +61,6 @@ public class LIB_Common extends TestBase {
 
     public boolean isDeleteButtonVisible() {
         click(PG_NewCustomer.btn_Add_AdditionalPhoneNo);
-        return isElementVisible(PG_NewCustomer.btn_Delete);
+        return isElementDisplayed(PG_NewCustomer.btn_Delete);
     }
 }
