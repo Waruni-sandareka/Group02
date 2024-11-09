@@ -65,6 +65,21 @@ public class TestBase extends TestNGHelper{
         }
     }
 
+    public boolean isElementDisplayed(Enum<?> locator) {
+        try {
+            WebElement element = driver.findElement(fetchLocator(locator));
+            return element.isDisplayed();
+        } catch (NoSuchElementException e) {
+            return false;
+        }
+    }
+
+    public String getText(Enum<?> locator) {
+        WebElement element = driver.findElement(fetchLocator(locator));
+        return element.getText();
+    }
+
+
 
 
 //    Properties properties = loadPropertyFile();
