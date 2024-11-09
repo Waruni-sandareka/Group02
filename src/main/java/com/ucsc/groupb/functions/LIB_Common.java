@@ -1,6 +1,9 @@
 package com.ucsc.groupb.functions;
 
+import com.ucsc.groupb.pages.PG_Customers;
 import com.ucsc.groupb.pages.PG_Login;
+import com.ucsc.groupb.pages.PG_Navigation;
+import com.ucsc.groupb.pages.PG_NewCustomer;
 import com.ucsc.groupb.testbase.TestBase;
 
 public class LIB_Common extends TestBase {
@@ -36,5 +39,28 @@ public class LIB_Common extends TestBase {
     public boolean bc_VerifyErrorMessages(String expectedMessage) {
         String actualMessage = getText(PG_Login.errorMessage);
         return actualMessage.equals(expectedMessage);
+    }
+
+    public void navigateToNewCustomer() {
+        // Navigate to the Side Navigation and open the Customers dropdown
+        click(PG_Navigation.nav_Customers);
+        click(PG_Navigation.nav_Customers_Dropdown);
+        // Click the New Customer button on the All Customers page
+        click(PG_Customers.btn_NewCustomer);
+    }
+
+    public void navigateToAddNewCustomerDirect() {
+        click(PG_Navigation.header_AddBtn);
+        click(PG_Navigation.header_Customers_Dropdown);
+    }
+
+    public void verifyFirstNameEmpty() {
+        click(PG_NewCustomer.tf_FirstName);
+        click(PG_NewCustomer.btn_Save);
+    }
+
+    public boolean isDeleteButtonVisible() {
+        click(PG_NewCustomer.btn_Add_AdditionalPhoneNo);
+        return isElementVisible(PG_NewCustomer.btn_Delete);
     }
 }
