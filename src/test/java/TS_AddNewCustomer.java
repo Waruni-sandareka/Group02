@@ -34,7 +34,4 @@ public class TS_AddNewCustomer extends TestBase {
         Thread.sleep(2000);
         Assert.assertTrue(isDeleteButtonVisible, "Delete button is not visible for the additional phone number field.");
     }
-
-
-
 }
