@@ -31,7 +31,7 @@ public class TestNGHelper {
         driver=browserFactory.getDriver();
         String testName = iTestResult.getMethod().getMethodName();
         System.out.println(testName);
-        LIB_Common.get().bc_Login("admin", "pointofsale");
+        //LIB_Common.get().bc_Login("admin", "pointofsale");
     }
 
     @AfterSuite

@@ -1,9 +1,15 @@
 import com.ucsc.groupb.functions.LIB_Common;
 import com.ucsc.groupb.testbase.TestBase;
 import org.testng.Assert;
+import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 
 public class TS_AddNewCustomer extends TestBase {
+    @BeforeMethod
+    public void login() {
+        LIB_Common.get().bc_Login("admin","pointofsale");
+    }
+
     @Test
     public void tc_AddNewCustomer() {
         LIB_Common.get().navigateToNewCustomer();
@@ -28,5 +34,7 @@ public class TS_AddNewCustomer extends TestBase {
         Thread.sleep(2000);
         Assert.assertTrue(isDeleteButtonVisible, "Delete button is not visible for the additional phone number field.");
     }
+
+
 
 }
