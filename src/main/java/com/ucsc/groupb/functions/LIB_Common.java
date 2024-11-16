@@ -1,11 +1,13 @@
 package com.ucsc.groupb.functions;
 
-import com.ucsc.groupb.pages.PG_Customers;
-import com.ucsc.groupb.pages.PG_Login;
-import com.ucsc.groupb.pages.PG_Navigation;
-import com.ucsc.groupb.pages.PG_NewCustomer;
+import com.ucsc.groupb.pages.*;
 import com.ucsc.groupb.testbase.TestBase;
+import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
+
+import java.time.Duration;
 
 public class LIB_Common extends TestBase {
     private static LIB_Common instance;
@@ -33,13 +35,24 @@ public class LIB_Common extends TestBase {
         click(PG_Login.btn_Login);
     }
 
-    public void bc_VerifyDashboard() {
-
+    public boolean bc_VerifyDashboard() {
+        return isElementDisplayed(PG_Login.dashboardElement);
     }
 
-    public void bc_VerifyErrorMessages(String message) {
+    public boolean bc_VerifyErrorMessages(String expectedMessage) {
+        String actualMessage = getText(PG_Login.errorMessage);
+        return actualMessage.equals(expectedMessage);
 
     }
+    //Select location as default
+    public void selectLocation() throws InterruptedException {
+        // Wait for the element to be clickable using locator
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        wait.until(ExpectedConditions.elementToBeClickable(PG_Dashboard.tf_location.getLocator())).click();
+        Thread.sleep(1000);
+    }
+
+
 
     public void navigateToNewCustomer() {
         // Navigate to the Side Navigation and open the Customers dropdown
@@ -61,7 +74,7 @@ public class LIB_Common extends TestBase {
 
     public boolean isDeleteButtonVisible() {
         click(PG_NewCustomer.btn_Add_AdditionalPhoneNo);
-        return isElementVisible(PG_NewCustomer.btn_Delete);
+        return isElementDisplayed(PG_NewCustomer.btn_Delete);
     }
 
     //------------------------------------------------------------------

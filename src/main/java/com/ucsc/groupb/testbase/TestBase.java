@@ -65,20 +65,20 @@ public class TestBase extends TestNGHelper{
         }
     }
 
-    public boolean isElementVisible(Enum<?> locator) {
-        WebElement element;
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Adjust the timeout duration if needed
+    public boolean isElementDisplayed(Enum<?> locator) {
         try {
-            element = wait.until(ExpectedConditions.visibilityOfElementLocated(fetchLocator(locator)));
-            return element.isDisplayed(); // Return true if element is visible
+            WebElement element = driver.findElement(fetchLocator(locator));
+            return element.isDisplayed();
         } catch (NoSuchElementException e) {
-            System.out.println("Element not found: " + e);
-            return false; // Return false if element is not found
-        } catch (Exception e) {
-            System.out.println("An error occurred while checking element visibility: " + e);
-            return false; // Return false if there was any other error
+            return false;
         }
     }
+
+    public String getText(Enum<?> locator) {
+        WebElement element = driver.findElement(fetchLocator(locator));
+        return element.getText();
+    }
+
 
 
 
