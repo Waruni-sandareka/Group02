@@ -29,4 +29,35 @@ public class TS_AddNewCustomer extends TestBase {
         Assert.assertTrue(isDeleteButtonVisible, "Delete button is not visible for the additional phone number field.");
     }
 
+    //-----------------------------
+    @Test
+
+    public void tc_AddNewCustomer_scroll(){
+        LIB_Common.scroll(0,900);
+    }
+
+    @Test
+    public void tc_AddNewCustomer_Address1() throws InterruptedException {
+        LIB_Common.get().navigateToNewCustomer();
+        LIB_Common.scroll(0, 1300);
+        LIB_Common.get().VerifyNonRequiredTextFeildAddress1("Wijerama");
+        Thread.sleep(1000);
+    }
+
+    @Test
+    public void tc_AddNewCustomer_Address2() throws InterruptedException {
+        LIB_Common.get().navigateToNewCustomer();
+        LIB_Common.scroll(0, 1300);
+        LIB_Common.get().VerifyNonRequiredTextFeildAddress2("Nugegoda");
+        Thread.sleep(1000);
+    }
+
+    @Test
+    public void tc_AddNewCustomer_City() throws InterruptedException {
+        LIB_Common.get().navigateToNewCustomer();
+        LIB_Common.scroll(0, 1300);
+        LIB_Common.get().VerifyNonRequiredTextFeildCity("Colombo");
+        Thread.sleep(1000);
+    }
+
 }

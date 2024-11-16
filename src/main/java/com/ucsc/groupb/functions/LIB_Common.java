@@ -5,6 +5,7 @@ import com.ucsc.groupb.pages.PG_Login;
 import com.ucsc.groupb.pages.PG_Navigation;
 import com.ucsc.groupb.pages.PG_NewCustomer;
 import com.ucsc.groupb.testbase.TestBase;
+import org.openqa.selenium.interactions.Actions;
 
 public class LIB_Common extends TestBase {
     private static LIB_Common instance;
@@ -23,19 +24,20 @@ public class LIB_Common extends TestBase {
         return instance;
     }
 
-    public void bc_Login(String uname,String pwd) {
+    public void bc_Login(String uname, String pwd) {
         navigateToURL(getURL());
         click(PG_Login.tf_UserName);
-        type(PG_Login.tf_UserName,uname);
+        type(PG_Login.tf_UserName, uname);
         click(PG_Login.tf_Password);
-        type(PG_Login.tf_Password,pwd);
+        type(PG_Login.tf_Password, pwd);
         click(PG_Login.btn_Login);
     }
 
-    public void bc_VerifyDashboard(){
+    public void bc_VerifyDashboard() {
 
     }
-    public void bc_VerifyErrorMessages(String message){
+
+    public void bc_VerifyErrorMessages(String message) {
 
     }
 
@@ -61,4 +63,37 @@ public class LIB_Common extends TestBase {
         click(PG_NewCustomer.btn_Add_AdditionalPhoneNo);
         return isElementVisible(PG_NewCustomer.btn_Delete);
     }
+
+    //------------------------------------------------------------------
+    public static void scroll(int x, int y) {
+        Actions actions = new Actions(driver);
+        actions.scrollByAmount(x, y);
+        //new Actions(driver).actions.scrollByAmount(x,y);
+    }
+
+    public void VerifyNonRequiredTextFeildAddress1(String address1) {
+        // click(PG_NewCustomer.tf_FirstName);
+        //type(PG_NewCustomer.tf_FirstName,fname);
+        click(PG_NewCustomer.tf_Address_1);
+        type(PG_NewCustomer.tf_Address_1, address1);
+        //click(PG_NewCustomer.btn_Save);
+    }
+
+    public void VerifyNonRequiredTextFeildAddress2(String address2) {
+
+        click(PG_NewCustomer.tf_Address_2);
+        type(PG_NewCustomer.tf_Address_2, address2);
+        // click(PG_NewCustomer.btn_Save);
+
+    }
+
+    public void VerifyNonRequiredTextFeildCity(String city) {
+        //click(PG_NewCustomer.tf_FirstName);
+        //type(PG_NewCustomer.tf_Address_1,fname);
+        click(PG_NewCustomer.tf_City);
+        type(PG_NewCustomer.tf_City, city);
+        //click(PG_NewCustomer.btn_Save);
+
+    }
+
 }
