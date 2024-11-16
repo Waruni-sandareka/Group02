@@ -109,4 +109,16 @@ public class LIB_Common extends TestBase {
 
     }
 
+    //Edit Profile
+    public void NavigateToUser(){
+        click(PG_EditProfile.nav_User);
+        click(PG_EditProfile.nav_EditProfile);
+    }
+
+    public void EditFirstName(){
+
+    }
+
+
+
 }
