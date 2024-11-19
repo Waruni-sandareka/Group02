@@ -58,6 +58,13 @@ public class TS_EditCustomer extends TestBase {
     }
 
     @Test
+    public void InvalidFileUpload() throws InterruptedException {
+        String filePath = "C:\\Users\\User\\Documents\\Automation\\UCSC\\Group Project\\Group02\\Book1.xlsx";
+        LIB_Common.get().ChooseFile(filePath);
+        Thread.sleep(1000);
+
+    }
+    @Test
     public void editAddress1() {
         WebElement lastNameField = driver.findElement(PG_EditProfileBtn.epb_Address1.getLocator());
         lastNameField.clear();
