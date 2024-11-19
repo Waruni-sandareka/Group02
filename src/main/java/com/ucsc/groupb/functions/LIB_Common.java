@@ -2,6 +2,8 @@ package com.ucsc.groupb.functions;
 
 import com.ucsc.groupb.pages.*;
 import com.ucsc.groupb.testbase.TestBase;
+import org.openqa.selenium.By;
+import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
@@ -45,11 +47,25 @@ public class LIB_Common extends TestBase {
 
     }
     //Select location as default
-    public void selectLocation() throws InterruptedException {
-        // Wait for the element to be clickable using locator
-        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
-        wait.until(ExpectedConditions.elementToBeClickable(PG_Dashboard.tf_location.getLocator())).click();
-        Thread.sleep(1000);
+    public void selectLocation() {
+        // Handles scenarios with or without the location pop-up using a try-catch block is implemented
+        try {
+
+            WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(5));
+
+            // Check if the location element is present and clickable
+            WebElement locationElement = wait.until(ExpectedConditions.presenceOfElementLocated(PG_Dashboard.tf_location.getLocator()));
+
+            if (locationElement.isDisplayed()) {
+                wait.until(ExpectedConditions.elementToBeClickable(locationElement)).click();
+                System.out.println("Location pop-up appeared and was handled.");
+            } else {
+                System.out.println("Location pop-up not visible.");
+            }
+        } catch (TimeoutException e) {
+
+            System.out.println("Location pop-up did not appear within the wait time.");
+        }
     }
 
 
@@ -109,15 +125,98 @@ public class LIB_Common extends TestBase {
 
     }
 
+    //.............................................................................
+
     //Edit Profile
     public void NavigateToUser(){
-        click(PG_EditProfile.nav_User);
-        click(PG_EditProfile.nav_EditProfile);
-    }
-
-    public void EditFirstName(){
+        click(PG_EditProfileBtn.nav_User);
+        click(PG_EditProfileBtn.nav_EditProfile);
 
     }
+
+
+
+    public void EditProfileBtn() throws InterruptedException {
+        click(PG_EditProfileBtn.ep_EditProfileBtn);
+        Thread.sleep(1000);
+
+    }
+
+    public void EditFirstname(String firstName){
+        click(PG_EditProfileBtn.epb_FirstName);
+        type(PG_EditProfileBtn.epb_FirstName,firstName);
+
+    }
+
+    public void EditLastName(String lastName){
+        click(PG_EditProfileBtn.epb_LastName);
+        type(PG_EditProfileBtn.epb_LastName,lastName);
+
+    }
+
+    public void EditEmail(String email){
+        click(PG_EditProfileBtn.epb_Email);
+        type(PG_EditProfileBtn.epb_Email,email);
+
+    }
+
+    public void EditphoneNumber(String phonenumber){
+        click(PG_EditProfileBtn.epb_PhoneNumber);
+        type(PG_EditProfileBtn.epb_PhoneNumber,phonenumber);
+    }
+
+
+
+    public void ChooseFile(String filepath){
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10));
+        WebElement fileInput = wait.until(ExpectedConditions.presenceOfElementLocated(By.id("image_id")));
+        fileInput.sendKeys(filepath);
+        System.out.println("File uploaded successfully: " + filepath);
+
+    }
+    public void EditAddress1(String address1){
+        click(PG_EditProfileBtn.epb_Address1);
+        type(PG_EditProfileBtn.epb_Address1,address1);
+    }
+
+    public void EditAddress2(String address2){
+        click(PG_EditProfileBtn.epb_Address2);
+        type(PG_EditProfileBtn.epb_Address2,address2);
+    }
+
+    public void EditCity(String city){
+        click(PG_EditProfileBtn.epb_City);
+        type(PG_EditProfileBtn.epb_City,city);
+    }
+
+    public void EditState(String state){
+        click(PG_EditProfileBtn.epb_state);
+        type(PG_EditProfileBtn.epb_state,state);
+    }
+
+    public void EditZip(String zip){
+        click(PG_EditProfileBtn.epb_zip);
+        type(PG_EditProfileBtn.epb_zip,zip);
+    }
+
+    public void Editcountry(String country){
+        click(PG_EditProfileBtn.epb_Country);
+        type(PG_EditProfileBtn.epb_Country,country);
+    }
+
+    public void Editcomment(String comment){
+        click(PG_EditProfileBtn.epb_comment);
+        type(PG_EditProfileBtn.epb_comment,comment);
+    }
+
+    public void ClickSave(){
+        click(PG_EditProfileBtn.epb_save);
+
+    }
+
+
+
+
 
 
 
