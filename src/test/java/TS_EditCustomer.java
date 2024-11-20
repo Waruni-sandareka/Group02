@@ -29,7 +29,7 @@ public class TS_EditCustomer extends TestBase {
     }
 
     @Test
-    public void eidtLastName() {
+    public void editLastName() {
         WebElement lastNameField = driver.findElement(PG_EditProfileBtn.epb_LastName.getLocator());
         lastNameField.clear();
         LIB_Common.get().EditLastName("No:002");
@@ -64,6 +64,8 @@ public class TS_EditCustomer extends TestBase {
         Thread.sleep(1000);
 
     }
+
+
     @Test
     public void editAddress1() {
         WebElement lastNameField = driver.findElement(PG_EditProfileBtn.epb_Address1.getLocator());

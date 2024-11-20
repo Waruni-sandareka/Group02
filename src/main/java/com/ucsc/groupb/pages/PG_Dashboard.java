@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public enum PG_Dashboard {
 
-    tf_location("//a[contains(@class, 'set_employee_current_location_after_login')]");
+    tf_location("//*[@id=\"choose_location_modal\"]/div/div/div[2]/ul/li[1]/a");
 
     private final String location;
 

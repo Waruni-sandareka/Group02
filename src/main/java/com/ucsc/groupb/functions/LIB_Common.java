@@ -47,7 +47,7 @@ public class LIB_Common extends TestBase {
 
     }
     //Select location as default
-    public void selectLocation() {
+    public void selectLocation() throws InterruptedException {
         // Handles scenarios with or without the location pop-up using a try-catch block is implemented
         try {
 
@@ -66,6 +66,7 @@ public class LIB_Common extends TestBase {
 
             System.out.println("Location pop-up did not appear within the wait time.");
         }
+        Thread.sleep(1000);
     }
 
 
@@ -128,10 +129,16 @@ public class LIB_Common extends TestBase {
     //.............................................................................
 
     //Edit Profile
-    public void NavigateToUser(){
-        click(PG_EditProfileBtn.nav_User);
-        click(PG_EditProfileBtn.nav_EditProfile);
+    public void NavigateToUser() {
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(10)); // Set a timeout of 10 seconds
 
+        // Wait for the 'nav_User' element to be clickable and then click it
+        WebElement userButton = wait.until(ExpectedConditions.elementToBeClickable(PG_EditProfileBtn.nav_User.getLocator()));
+        userButton.click();
+
+        // Wait for the 'nav_EditProfile' element to be clickable and then click it
+        WebElement editProfileButton = wait.until(ExpectedConditions.elementToBeClickable(PG_EditProfileBtn.nav_EditProfile.getLocator()));
+        editProfileButton.click();
     }
 
 

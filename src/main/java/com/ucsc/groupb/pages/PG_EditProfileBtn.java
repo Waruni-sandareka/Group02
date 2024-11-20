@@ -4,7 +4,7 @@ import org.openqa.selenium.By;
 
 public enum PG_EditProfileBtn {
 
-    nav_User("//*[@id=\"content\"]/div[2]/nav/ul/li[4]/a/span[1]/img"),
+    nav_User("//*[@id=\"content\"]/div[2]/nav/ul/li[5]/a/span[2]"),
 
     nav_EditProfile("//*[@id=\"edit_profile\"]"),
 
