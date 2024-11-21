@@ -16,6 +16,7 @@ public class TS_EditCustomer extends TestBase {
     public void login() throws InterruptedException {
         LIB_Common.get().bc_Login("admin", "pointofsale");
         LIB_Common.get().selectLocation();
+        Thread.sleep(1000);
         LIB_Common.get().NavigateToUser();
         LIB_Common.get().EditProfileBtn();
 
