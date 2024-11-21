@@ -29,6 +29,21 @@ public class TestBase extends TestNGHelper{
             System.out.println("No such element found "+e);
         }
     }
+
+    public void sendKeys(Enum<?> locator, String text) {
+        WebElement element;
+        WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1000));
+        try {
+            element = wait.until(ExpectedConditions.elementToBeClickable(fetchLocator(locator)));
+            if (element.isEnabled()) {
+                element.clear(); // Clear existing text if necessary
+                element.sendKeys(text);
+            }
+        } catch (NoSuchElementException e) {
+            System.out.println("No such element found: " + e);
+        }
+    }
+
     public void type(Enum<?> locator,String text){
         WebElement element;
         WebDriverWait wait = new WebDriverWait(driver, Duration.ofSeconds(1000));

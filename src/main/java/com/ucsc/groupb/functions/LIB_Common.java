@@ -2,11 +2,13 @@ package com.ucsc.groupb.functions;
 
 import com.ucsc.groupb.pages.*;
 import com.ucsc.groupb.testbase.TestBase;
-import org.openqa.selenium.WebElement;
 import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
+import java.awt.*;
+import java.awt.datatransfer.StringSelection;
+import java.awt.event.KeyEvent;
 import java.time.Duration;
 
 public class LIB_Common extends TestBase {
@@ -77,7 +79,7 @@ public class LIB_Common extends TestBase {
         return isElementDisplayed(PG_NewCustomer.btn_Delete);
     }
 
-    //------------------------------------------------------------------
+
     public static void scroll(int x, int y) {
         Actions actions = new Actions(driver);
         actions.scrollByAmount(x, y);
@@ -113,9 +115,58 @@ public class LIB_Common extends TestBase {
     public void NavigateToUser(){
         click(PG_EditProfile.nav_User);
         click(PG_EditProfile.nav_EditProfile);
+        //-----
+        click(PG_EditProfile.nav_EditProfile_2);
     }
 
     public void EditFirstName(){
+
+    }
+
+    public void verifyEditProfileFirstNameEmpty() {
+        click(PG_EditProfile.tf_Ep_FirstName);
+        sendKeys(PG_EditProfile.tf_Ep_FirstName, "");
+        click(PG_EditProfile.btn_Ep_Save);
+    }
+
+    public void verifyEditProfileEmailEmpty() {
+        click(PG_EditProfile.tf_Ep_Email);
+        sendKeys(PG_EditProfile.tf_Ep_Email, "");
+        click(PG_EditProfile.btn_Ep_Save);
+    }
+
+    public void verifyEditProfileUserNameEmpty() {
+        click(PG_EditProfile.tf_Ep_UserName);
+        sendKeys(PG_EditProfile.tf_Ep_UserName, "");
+        click(PG_EditProfile.btn_Ep_Save);
+    }
+
+    public void verifyEditProfileWithValidEmail(){
+        click(PG_EditProfile.tf_Ep_Email);
+        sendKeys(PG_EditProfile.tf_Ep_Email, "");
+        sendKeys(PG_EditProfile.tf_Ep_Email, "no-reply@gmail.com");
+        click(PG_EditProfile.btn_Ep_Save);
+
+    }
+
+    public void verifyEditProfileUploadImage(){
+        click(PG_EditProfile.Ep_UploadImageBtn);
+//        String data= "/Pictures/kk.jpg";
+//        StringSelection selection = new StringSelection(data);
+//        Toolkit.getDefaultToolkit().getSystemClipboard().setContents(selection, null);
+//        Robot robot = null;
+//        try {
+//            robot = new Robot();
+//        } catch (AWTException e) {
+//            throw new RuntimeException(e);
+//        }
+//        robot.keyPress(KeyEvent.VK_CONTROL);       //vk-VIRTUAL Key
+//        robot.keyPress(KeyEvent.VK_V);
+//        robot.keyRelease(KeyEvent.VK_V);
+//        robot.keyRelease(KeyEvent.VK_CONTROL);
+//
+//        robot.keyPress(KeyEvent.VK_ENTER);//click enter button to
+//        robot.keyRelease(KeyEvent.VK_ENTER);
 
     }
 

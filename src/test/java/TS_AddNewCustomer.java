@@ -8,7 +8,7 @@ public class TS_AddNewCustomer extends TestBase {
     @BeforeMethod
     public void login() throws InterruptedException {
         LIB_Common.get().bc_Login("admin", "pointofsale");
-        LIB_Common.get().selectLocation();
+        //LIB_Common.get().selectLocation();
     }
 
     @Test
