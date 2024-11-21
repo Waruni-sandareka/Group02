@@ -18,33 +18,37 @@ public class TS_EditCustomer extends TestBase {
         LIB_Common.get().selectLocation();
         Thread.sleep(1000);
         LIB_Common.get().NavigateToUser();
-        LIB_Common.get().EditProfileBtn();
+
 
     }
 
     @Test
-    public void editFirstName() {
+    public void editFirstName() throws InterruptedException {
+        LIB_Common.get().EditProfileBtn();
         WebElement firstNameField = driver.findElement(PG_EditProfileBtn.epb_FirstName.getLocator());
         firstNameField.clear();
         LIB_Common.get().EditFirstname("Group");
     }
 
     @Test
-    public void editLastName() {
+    public void editLastName() throws InterruptedException {
+        LIB_Common.get().EditProfileBtn();
         WebElement lastNameField = driver.findElement(PG_EditProfileBtn.epb_LastName.getLocator());
         lastNameField.clear();
         LIB_Common.get().EditLastName("No:002");
     }
 
     @Test
-    public void editemail() {
+    public void editemail() throws InterruptedException {
+        LIB_Common.get().EditProfileBtn();
         WebElement lastNameField = driver.findElement(PG_EditProfileBtn.epb_Email.getLocator());
         lastNameField.clear();
         LIB_Common.get().EditEmail("group2@gmail.com");
     }
 
     @Test
-    public void editPhoneNumber() {
+    public void editPhoneNumber() throws InterruptedException {
+        LIB_Common.get().EditProfileBtn();
         WebElement lastNameField = driver.findElement(PG_EditProfileBtn.epb_PhoneNumber.getLocator());
         lastNameField.clear();
         LIB_Common.get().EditphoneNumber("011234567");
@@ -52,6 +56,7 @@ public class TS_EditCustomer extends TestBase {
 
     @Test
     public void FileUpload() throws InterruptedException {
+        LIB_Common.get().EditProfileBtn();
         String filePath = "C:\\Users\\User\\Documents\\Automation\\UCSC\\Group Project\\Group02\\image1.jpg";
         LIB_Common.get().ChooseFile(filePath);
         Thread.sleep(1000);
@@ -68,35 +73,40 @@ public class TS_EditCustomer extends TestBase {
 
 
     @Test
-    public void editAddress1() {
+    public void editAddress1() throws InterruptedException {
+        LIB_Common.get().EditProfileBtn();
         WebElement lastNameField = driver.findElement(PG_EditProfileBtn.epb_Address1.getLocator());
         lastNameField.clear();
         LIB_Common.get().EditAddress1("UCSC");
     }
 
     @Test
-    public void editAddress2() {
+    public void editAddress2() throws InterruptedException {
+        LIB_Common.get().EditProfileBtn();
         WebElement lastNameField = driver.findElement(PG_EditProfileBtn.epb_Address2.getLocator());
         lastNameField.clear();
         LIB_Common.get().EditAddress2("Colombo");
     }
 
     @Test
-    public void editCity() {
+    public void editCity() throws InterruptedException {
+        LIB_Common.get().EditProfileBtn();
         WebElement lastNameField = driver.findElement(PG_EditProfileBtn.epb_City.getLocator());
         lastNameField.clear();
         LIB_Common.get().EditCity("Colombo");
     }
 
     @Test
-    public void editState() {
+    public void editState() throws InterruptedException {
+        LIB_Common.get().EditProfileBtn();
         WebElement lastNameField = driver.findElement(PG_EditProfileBtn.epb_state.getLocator());
         lastNameField.clear();
         LIB_Common.get().EditState("Western Province");
     }
 
     @Test
-    public void editZip() {
+    public void editZip() throws InterruptedException {
+        LIB_Common.get().EditProfileBtn();
         WebElement lastNameField = driver.findElement(PG_EditProfileBtn.epb_zip.getLocator());
         lastNameField.clear();
         LIB_Common.get().EditZip("12345");
